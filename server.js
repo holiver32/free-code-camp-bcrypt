@@ -4,10 +4,14 @@ const bodyParser  = require('body-parser');
 const fccTesting  = require('./freeCodeCamp/fcctesting.js');
 const app         = express();
 const bcrypt      = require('bcrypt');
+const cors = require('cors');
+app.use(cors());
+
 fccTesting(app);
 const saltRounds = 12;
 const myPlaintextPassword = 'sUperpassw0rd!';
 const someOtherPlaintextPassword = 'pass123';
+
 
 app.get('/', (req, res) => {
   res.send("Hello World!");
